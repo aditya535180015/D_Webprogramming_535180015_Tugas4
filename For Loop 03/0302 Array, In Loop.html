@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Java Script Syntax</title>
+
+    <script>
+        var hobbies = [];
+
+        function AddHobby(pHobby){ 
+            hobbies.push(pHobby);
+            document.getElementById("iHobby").value = "";
+            document.getElementById("iHobby").focus();
+            console.log(hobbies.length);
+        }
+
+        function InLoop(){
+            var item;
+            document.getElementById("iHobby").innerHTML = "";
+            for(item of hobbies){
+                document.getElementById("oResult").innerHTML += item + "<br />";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <input type="number" id="iLoop" placeholder="Type number of iteration" style="width: 500px;">
+    <button type="button" onclick='ForLoop(document.getElementById("iLoop").value)'>Go</button>
+    <button type="button" onclick='InLoop()'>Show All</button>
+
+    <br><br>
+
+    <p id="oResult"></p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+            var add = function(num1, num2){
+                return num1 + num2;
+            }
+
+            function getresult(){
+                array = [3, 4];
+                return add.apply(null, array)
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick='document.getElementById("res").innerHTML = getresult();'>Addition</button>
+
+        <br><br>
+
+        <p id="res"></p>
+    </body>
+</html>

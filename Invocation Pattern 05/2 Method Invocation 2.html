@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <script>
+            var person = {
+                email:"",
+                nim:"",
+                nama:"",
+                hobby:[],
+
+                addbio: function (pemail, pnim, pnama){
+                    this.email = pemail;
+                    this.nim = pnim;
+                    this.nama = pnama;
+                },
+
+                addhobby: function(phobby){
+                    this.hobby.push(phobby);
+                },
+
+                write: function(){
+                    var str = "Bio: " + this.email + ", " + this.nim + ", " + this.nama;
+                    var hobb = "Hobbies: ";
+                    var item;
+                    for (item of this.hobby){
+                        hobb += item + " ";
+                    }
+                    return str + " " + hobb;
+                }
+            }
+
+            function addbioinfo(pemail, pnim, pnama){
+                person.addbio(pemail, pnim ,pnama);
+            }
+
+            function addhobby(phobby){
+                person.addhobby(phobby);
+            }
+
+            function load(){
+                document.getElementById("res").innerHTML = person.write();
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="iemail" placeholder="email">
+        <input type="text" id="inim" placeholder="nim">
+        <input type="text" id="inama" placeholder="nama">
+
+        <button type="button" onclick='addbioinfo(document.getElementById("iemail").value, document.getElementById("inim").value, document.getElementById("inama").value)'>Add Bio Info</button>
+
+        <br><br>
+
+        <input type="text" id="ihobby" placeholder="hobby" style="width: 500px;">
+        <button type="button" onclick='person.addhobby(document.getElementById("ihobby").value)'>Add Hobby</button>
+
+        <br><br>
+
+        <button type="button" onclick="load()">Load</button>
+
+        <br><br>
+
+        <div id="res"></div>
+    </body>
+</html>
